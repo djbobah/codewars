@@ -196,22 +196,22 @@ function check(board) {
       chekh = true;
     }
   });
-  arr = [];
-  for (i = RowLength + ColumnLength - 2; i >= 0; i--) {
-    text = "";
-    for (x = 0; x <= i; x++) {
-      if (board[i - x] && board[i - x][x]) {
-        text += board[i - x][x];
-      }
-    }
-    arr.push(text);
-  }
-  console.log(arr);
-  arr.map((item) => {
-    if (item.indexOf("q") >= 0 && item.indexOf("k") >= 0) {
-      chekh = true;
-    }
-  });
+  // arr = [];
+  // for (i = RowLength + ColumnLength - 2; i >= 0; i--) {
+  //   text = "";
+  //   for (x = 0; x <= i; x++) {
+  //     if (board[i - x] && board[i - x][x]) {
+  //       text += board[i - x][x];
+  //     }
+  //   }
+  //   arr.push(text);
+  // }
+  // console.log(arr);
+  // arr.map((item) => {
+  //   if (item.indexOf("q") >= 0 && item.indexOf("k") >= 0) {
+  //     chekh = true;
+  //   }
+  // });
 
   return chekh;
 }
