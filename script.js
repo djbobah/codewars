@@ -148,3 +148,165 @@ function expandedForm(num) {
 // console.log(expandedForm(42)); // Should return '40 + 2'
 // console.log(expandedForm(70304)); // Should return '70000 + 300 + 4'
 // console.log(expandedForm(9000000)); // Should return 9000000;
+
+//task6
+function check(board) {
+  let strQx = "",
+    strQy = "",
+    strKx = "",
+    strKy = "",
+    chekh = false;
+
+  board.map((item, x) => {
+    item.map((i, y) => {
+      if (i === "q") {
+        strQx = x;
+        strQy = y;
+        // console.log(strQx, strQy);
+      }
+      if (i === "k") {
+        strKx = x;
+        strKy = y;
+      }
+    });
+    // console.log(`q ${strQx}:${strQy} k ${strKx}:${strKy}`);
+  });
+
+  if (strQx === strKx || strQy === strKy) {
+    chekh = true;
+  }
+
+  // for (let i = 0; i < board.length; i++) {
+  //   // if(){chekh = true;}
+  //   console.log(board[i][strQy + i]);
+  // }
+  // console.log(board.length);
+
+  // for (let i = 0, j = 0; i < board.length; i++) {
+  //   // for (let j = 0; j < board[i].length; j++) {
+
+  //   // }
+  //   if (i === j) {
+  //     console.log(board[i][j]);
+  //   }
+  // }
+
+  // var TheArray = ["ABCD", "EFGH", "IJKL"];
+  //amount of rows
+  const RowLength = board.length;
+  //amount of colums
+  const ColumnLength = board[0].length;
+  let text = "";
+  let arr = [];
+
+  for (i = 0; i <= RowLength + ColumnLength - 2; i++) {
+    text = "";
+    for (x = 0; x <= i; x++) {
+      if (board[i - x] && board[i - x][x]) {
+        text += board[i - x][x];
+      }
+    }
+    arr.push(text);
+    // text += " ";
+
+    if (text.indexOf("q") === 0 && text.indexOf("k") === 0) {
+      chekh = true;
+    }
+  }
+  console.log(arr);
+  console.log(chekh);
+  //  for (let j = 0; j < board[i].length; j++) {
+  //    if (i === j) {
+  //      console.log(board[i][j]);
+  //    }
+  //  }
+
+  // for (let i = 0, j = 4; i < board.length; i++) {
+  //   if (i % 5 === j) {
+  //     console.log(board[i][j]);
+  //     j--;
+  //   }
+  // }
+  // console.log(chekh);
+}
+
+var board1 = [
+  ["1", "q", "1", "1", "k"],
+  ["2", "2", "2", "2", "2"],
+  ["3", "3", "3", "3", "3"],
+  ["4", "4", "4", "4", "4"],
+  ["5", "5", "5", "5", "5"],
+];
+// var board1 = [
+//   ["*", "q", "*", "*", "k"],
+//   ["*", "*", "*", "*", "*"],
+//   ["*", "*", "*", "*", "*"],
+//   ["*", "*", "*", "*", "*"],
+//   ["*", "*", "*", "*", "*"],
+// ];
+var board2 = [
+  ["*", "*", "*", "*", "*"],
+  ["*", "k", "*", "q", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+];
+var board3 = [
+  ["k", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["q", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+];
+var board4 = [
+  ["*", "*", "*", "*", "q"],
+  ["*", "*", "*", "*", "k"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+];
+var board5 = [
+  ["*", "k", "*", "*", "*"],
+  ["*", "*", "q", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+];
+var board6 = [
+  ["*", "*", "k", "*", "*"],
+  ["*", "q", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+];
+var board7 = [
+  ["*", "*", "*", "q", "*"],
+  ["*", "*", "k", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+];
+var board8 = [
+  ["*", "*", "q", "*", "k"],
+  ["*", "*", "*", "k", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+];
+var board9 = [
+  ["*", "*", "q", "*", "*"],
+  ["k", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+  ["*", "*", "*", "*", "*"],
+];
+
+console.log(check(board1)); //rue, "check to the right should return true");
+// console.log(check(board2)); //rue, "check to the left should return true");
+// console.log(check(board3)); //rue, "check to the top should return true");
+// console.log(check(board4)); //rue, "check to the bottom should return true");
+console.log(check(board5)); //rue, "check to the top left should return true");
+console.log(check(board6)); //rue, "check to the top right should return true");
+// console.log(check(board7)); //rue, "check to the bottom left should return true");
+// console.log(check(board8)); // true,  "check to the bottom right should return true");
+// console.log(check(board9)); //alse, "Expect 'false' when king not in check");
