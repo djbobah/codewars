@@ -176,25 +176,8 @@ function check(board) {
     chekh = true;
   }
 
-  // for (let i = 0; i < board.length; i++) {
-  //   // if(){chekh = true;}
-  //   console.log(board[i][strQy + i]);
-  // }
-  // console.log(board.length);
-
-  // for (let i = 0, j = 0; i < board.length; i++) {
-  //   // for (let j = 0; j < board[i].length; j++) {
-
-  //   // }
-  //   if (i === j) {
-  //     console.log(board[i][j]);
-  //   }
-  // }
-
-  // var TheArray = ["ABCD", "EFGH", "IJKL"];
-  //amount of rows
   const RowLength = board.length;
-  //amount of colums
+
   const ColumnLength = board[0].length;
   let text = "";
   let arr = [];
@@ -207,27 +190,13 @@ function check(board) {
       }
     }
     arr.push(text);
-    // text += " ";
-
-    if (text.indexOf("q") === 0 && text.indexOf("k") === 0) {
+  }
+  arr.map((item) => {
+    if (item.indexOf("q") >= 0 && item.indexOf("k") >= 0) {
       chekh = true;
     }
-  }
-  console.log(arr);
-  console.log(chekh);
-  //  for (let j = 0; j < board[i].length; j++) {
-  //    if (i === j) {
-  //      console.log(board[i][j]);
-  //    }
-  //  }
-
-  // for (let i = 0, j = 4; i < board.length; i++) {
-  //   if (i % 5 === j) {
-  //     console.log(board[i][j]);
-  //     j--;
-  //   }
-  // }
-  // console.log(chekh);
+  });
+  return chekh;
 }
 
 var board1 = [
@@ -302,11 +271,11 @@ var board9 = [
 ];
 
 console.log(check(board1)); //rue, "check to the right should return true");
-// console.log(check(board2)); //rue, "check to the left should return true");
-// console.log(check(board3)); //rue, "check to the top should return true");
-// console.log(check(board4)); //rue, "check to the bottom should return true");
+console.log(check(board2)); //rue, "check to the left should return true");
+console.log(check(board3)); //rue, "check to the top should return true");
+console.log(check(board4)); //rue, "check to the bottom should return true");
 console.log(check(board5)); //rue, "check to the top left should return true");
 console.log(check(board6)); //rue, "check to the top right should return true");
-// console.log(check(board7)); //rue, "check to the bottom left should return true");
-// console.log(check(board8)); // true,  "check to the bottom right should return true");
-// console.log(check(board9)); //alse, "Expect 'false' when king not in check");
+console.log(check(board7)); //rue, "check to the bottom left should return true");
+console.log(check(board8)); // true,  "check to the bottom right should return true");
+console.log(check(board9)); //alse, "Expect 'false' when king not in check");
