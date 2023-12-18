@@ -120,3 +120,31 @@ function productFib(prod) {
 // console.log(productFib(193864606)); //, [10946, 17711, true]);
 // console.log(productFib(447577)); //, [610, 987, false]);
 // console.log(productFib(602070)); //, [610, 987, true]);
+
+// task5
+function Nulls(num) {
+  let str = "";
+  for (let i = 0; i < num; i++) {
+    str += "0";
+  }
+  return str;
+}
+function expandedForm(num) {
+  const strNum = String(num);
+  let res = "";
+
+  for (let i = 0; i <= strNum.length - 1; i++) {
+    if (strNum[i] !== "0" && strNum.length - i - 1 > 0) {
+      res += strNum[i].toString() + Nulls(strNum.length - i - 1) + " + ";
+    } else if (strNum.length - i - 1 == 0 && strNum[i] != 0) {
+      res += strNum[i].toString();
+    } else if (strNum.length - i - 1 == 0 && strNum[i] == 0) {
+      res = res.slice(0, res.length - 3);
+    }
+  }
+  return res;
+}
+// console.log(expandedForm(12)); // Should return '10 + 2'
+// console.log(expandedForm(42)); // Should return '40 + 2'
+// console.log(expandedForm(70304)); // Should return '70000 + 300 + 4'
+// console.log(expandedForm(9000000)); // Should return 9000000;
