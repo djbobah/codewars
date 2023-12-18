@@ -69,11 +69,11 @@ function score(dice) {
   });
   return sum;
 }
-console.log(score([2, 3, 4, 6, 2]));
-console.log(score([4, 4, 4, 3, 3]));
+// console.log(score([2, 3, 4, 6, 2]));
+// console.log(score([4, 4, 4, 3, 3]));
 
-console.log(score([2, 4, 4, 5, 4]));
-console.log(score([1, 1, 1, 3, 3]));
+// console.log(score([2, 4, 4, 5, 4]));
+// console.log(score([1, 1, 1, 3, 3]));
 ///
 //  Three 1's => 1000 points
 //  Three 6's =>  600 points
@@ -83,3 +83,40 @@ console.log(score([1, 1, 1, 3, 3]));
 //  Three 2's =>  200 points
 //  One   1   =>  100 points
 //  One   5   =>   50 point
+
+// task4
+function fib(n) {
+  let a = 1;
+  let b = 1;
+  for (let i = 3; i <= n; i++) {
+    let c = a + b;
+    a = b;
+    b = c;
+  }
+  return b;
+}
+
+function productFib(prod) {
+  let number = 0,
+    i = 0;
+  // debugger;
+  while (number <= prod) {
+    number = fib(i) * fib(i + 1);
+    if (number == prod) {
+      // number = fib(i) * fib(i + 1);
+      return [fib(i), fib(i + 1), true];
+    } else if (number < prod) {
+      i++;
+    } else {
+      return [fib(i), fib(i + 1), false];
+    }
+  }
+}
+
+// console.log(productFib(4895)); //, [55, 89, true]);
+// console.log(productFib(5895)); //, [89, 144, false]);
+// console.log(productFib(74049690)); //, [6765, 10946, true]);
+// console.log(productFib(84049690)); //, [10946, 17711, false]);
+// console.log(productFib(193864606)); //, [10946, 17711, true]);
+// console.log(productFib(447577)); //, [610, 987, false]);
+// console.log(productFib(602070)); //, [610, 987, true]);
