@@ -200,15 +200,6 @@ function check(board) {
   text = "";
   arr = [];
   // for (i = RowLength + ColumnLength - 2; i >= 0; i--) {
-  console.log(board[4][0]);
-  console.log(board[3][0], board[4][1]);
-  console.log(board[2][0], board[3][1], board[4][2]);
-  console.log(board[1][0], board[2][1], board[3][2], board[4][3]);
-  console.log(board[0][0], board[1][1], board[2][2], board[3][3], board[4][4]);
-  console.log(board[0][1], board[1][2], board[2][3], board[3][4]);
-  console.log(board[0][2], board[1][3], board[2][4]);
-  console.log(board[0][3], board[1][4]);
-  console.log(board[0][4]);
 
   // console.log("--------------");
   // console.log(board[0][4]);
@@ -231,18 +222,32 @@ function check(board) {
   // console.log(board[4][2], board[3][3], board[2][4]);
   // console.log(board[4][3], board[3][4]);
   // console.log(board[4][4]);
-
+  console.log(board[4][0]);
+  console.log(board[3][0], board[4][1]);
+  console.log(board[2][0], board[3][1], board[4][2]);
+  console.log(board[1][0], board[2][1], board[3][2], board[4][3]);
+  console.log(board[0][0], board[1][1], board[2][2], board[3][3], board[4][4]);
+  console.log(board[0][1], board[1][2], board[2][3], board[3][4]);
+  console.log(board[0][2], board[1][3], board[2][4]);
+  console.log(board[0][3], board[1][4]);
+  console.log(board[0][4]);
   // for (i = 0; i <= RowLength + ColumnLength - 2; i++) {
-  for (i = 4; i >= 0; i--) {
+  // for (x = 0; x <= i; x++) {
+  //   if (board[i - x] && board[i - x][x]) {
+  //     text += board[i - x][x];
+  //   }
+  // }
+
+  for (i = 8; i >= 0; i--) {
     text = "";
     for (x = 0; x <= i; x++) {
-      // if (board[x] && board[x][x + i]) {
-      text += board[i - x][x];
-      // }
+      if (board[i] && board[i + x]) {
+        text += board[i + x][x];
+      }
 
-      arr.push(text);
+      // arr.push(text);
     }
-    console.log(arr);
+    console.log(text);
     arr.map((item) => {
       if (item.indexOf("q") >= 0 && item.indexOf("k") >= 0) {
         chekh = true;
