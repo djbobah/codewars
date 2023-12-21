@@ -349,3 +349,16 @@ console.log(check(board5)); //rue, "check to the top left should return true");
 // console.log(check(board7)); //rue, "check to the bottom left should return true");
 // console.log(check(board8)); // true,  "check to the bottom right should return true");
 // console.log(check(board9)); //alse, "Expect 'false' when king not in check");
+
+//task7 "Cuckoo Clock" "HH:MM", where 1 ≤ HH ≤ 12 and 0 ≤ MM ≤ 59,
+
+function cuckooClock(inputTime, chimes) {
+  // Write code
+  return inputTime;
+}
+const initialTimes = ["07:22", "12:22", "01:30", "04:01", "03:38"];
+const chimes = [1, 2, 2, 10, 19];
+//     const expectedTimes = ["07:30", "12:45", "01:45", "05:30", "06:00"];
+
+cuckooClock("07:22", 1);
+cuckooClock("12:22", 2);
