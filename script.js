@@ -238,7 +238,7 @@ function check(board) {
   //   }
   // }
 
-  for (i = 8; i >= 0; i--) {
+  for (i = 1; i >= 0; i--) {
     text = "";
     for (x = 0; x <= i; x++) {
       if (board[i] && board[i + x]) {
